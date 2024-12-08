@@ -54,10 +54,10 @@ export const ExpenseProvider = ({ children }) => {
       localStorage.setItem("expense",0);
     }
     // Set the balance state from localStorage
-    const currentBalance = Number(localStorage.getItem("balance"));
-    setBalance(currentBalance); // Update the state to reflect the balance
-    const currentExpense=Number(localStorage.getItem("expense"));
-    setExpense(currentExpense)
+    // const currentBalance = Number(localStorage.getItem("balance"));
+    setBalance(5000); // Update the state to reflect the balance
+    // const currentExpense=Number(localStorage.getItem("expense"));
+    setExpense(0)
 
   },[setBalance, setExpense] ); // dependices is optional
 
