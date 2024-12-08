@@ -45,12 +45,28 @@ export const ExpenseProvider = ({ children }) => {
     setChartData(data);
   }, [expensesList]);
 
+  useEffect(() => {
+    // Check if balance is already set in localStorage
+    if (!localStorage.getItem("balance")) {
+      localStorage.setItem("balance", 5000); // Set the default balance to 5000
+    }
+    if(!localStorage.getItem("expense")){
+      localStorage.setItem("expense",0);
+    }
+    // Set the balance state from localStorage
+    const currentBalance = Number(localStorage.getItem("balance"));
+    setBalance(currentBalance); // Update the state to reflect the balance
+    const currentExpense=Number(localStorage.getItem("expense"));
+    setExpense(currentExpense)
+
+  },[setBalance, setExpense] ); // dependices is optional
+
   // to treack changes after state changes
- useEffect(() => {
-    localStorage.setItem("expensesList", JSON.stringify(expensesList));
-    localStorage.setItem("balance", balance);
-    localStorage.setItem("expense", expense);
-  }, [expensesList, balance, expense]);
+//  useEffect(() => {
+//     localStorage.setItem("expensesList", JSON.stringify(expensesList));
+//     localStorage.setItem("balance", balance);
+//     localStorage.setItem("expense", expense);
+//   }, [expensesList, balance, expense]);
   return (
     <ExpenseContext.Provider
       value={{

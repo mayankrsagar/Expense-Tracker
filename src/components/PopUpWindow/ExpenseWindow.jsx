@@ -11,7 +11,7 @@ import { ExpenseContext } from '../Context/ExpenseProvider';
 import styles from './ExpenseWindow.module.css';
 
 const ExpenseWindow = ({ isOpen, onClose, name }) => {
-  const category = ["Food", "Entertainment", "Travel"];
+  const category = ["food", "entertainment", "travel"];
   const [form, setForm] = useState({
     title: "",
     price: "",
